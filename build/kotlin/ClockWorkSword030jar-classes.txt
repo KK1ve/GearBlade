@@ -1,0 +1,1 @@
+C:\nonsystem\ClockWorkSword\build\classes\java\main\net\kkive\clockworksword\ClockWorkSword.class;C:\nonsystem\ClockWorkSword\build\classes\java\main\net\kkive\clockworksword\event\MsgEventHandler.class
