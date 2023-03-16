@@ -388,9 +388,9 @@ public class MsgEventHandler extends SimpleListenerHost {
                     event.getSubject().sendMessage("实例或其他实例处于重启中请稍后再试。");
                     return;
                 }
-                timer(45000L, restartFlag);
+                timer(180000L, restartFlag);
                 try {
-                    Thread.sleep(45000);
+                    Thread.sleep(60000);
                 } catch (InterruptedException ignored) {
 
                 }
@@ -415,6 +415,7 @@ public class MsgEventHandler extends SimpleListenerHost {
 
                 } else {
                     event.getSubject().sendMessage("重启状态查询失败请重试。");
+                    return;
                 }
 
                 url = "localhost:23333/api/protected_instance/kill?uuid=" + instanceUUID + "&remote_uuid=" + instanceProtectUUID + "&apikey=" + apiKey;
@@ -425,13 +426,16 @@ public class MsgEventHandler extends SimpleListenerHost {
                     event.getSubject().sendMessage("发送重启成功。");
                 } else {
                     event.getSubject().sendMessage("重启失败请稍后再试。");
+                    return;
                 }
             } else {
                 event.getSubject().sendMessage("重启失败请稍后再试。");
+                return;
             }
 
         } else {
             event.getSubject().sendMessage("重启命令只能在6-10点使用。");
+            return;
         }
     }
 
